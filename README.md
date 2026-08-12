@@ -45,8 +45,8 @@ content-type: application/json
 
 ## Swagger UI
 
-<!-- Paste your Stage 5 screenshot here, e.g.: -->
-<!-- ![Swagger UI screenshot](swagger-screenshot.png) -->
+<img width="1354" height="764" alt="Screenshot of crud app in browser" src="https://github.com/user-attachments/assets/c0d6e3b7-22ee-44be-ba6e-2d4429bfba24" />
+
 
 ## Notes
 
