@@ -45,6 +45,10 @@ content-type: application/json
 
 ## Swagger UI
 
+<img width="1366" height="768" alt="Swagger  Result" src="https://github.com/user-attachments/assets/8edd2540-d871-444b-9800-a84586bf68fa" />
+
+<img width="1366" height="768" alt="Swagger UI 2" src="https://github.com/user-attachments/assets/fa57a2c9-468d-45d1-9381-bac7c81a5899" />
+
 <img width="1354" height="764" alt="Screenshot of crud app in browser" src="https://github.com/user-attachments/assets/c0d6e3b7-22ee-44be-ba6e-2d4429bfba24" />
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/daea827b-12af-4aca-9194-7d326bfdea88" />
