@@ -54,3 +54,24 @@ def create_task(payload: TaskCreate):
     tasks.append(new_task)
     next_id += 1
     return new_task
+
+@app.put("/tasks/{task_id}")
+def update_task(task_id: int, payload: TaskUpdate):
+    for t in tasks:
+        if t.id == task_id:
+            if payload.title is not None:
+                if not payload.title.strip():
+                    raise HTTPException(status_code=400, detail="title cannot be empty")
+                t.title = payload.title
+            if payload.done is not None:
+                t.done = payload.done
+            return t
+    raise HTTPException(status_code=404, detail=f"Task {task_id} not found")
+
+@app.delete("/tasks/{task_id}", status_code=204)
+def delete_task(task_id: int):
+    for i, t in enumerate(tasks):
+        if t.id == task_id:
+            tasks.pop(i)
+            return
+    raise HTTPException(status_code=404, detail=f"Task {task_id} not found")
