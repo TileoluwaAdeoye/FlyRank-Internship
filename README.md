@@ -47,6 +47,8 @@ content-type: application/json
 
 <img width="1354" height="764" alt="Screenshot of crud app in browser" src="https://github.com/user-attachments/assets/c0d6e3b7-22ee-44be-ba6e-2d4429bfba24" />
 
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/daea827b-12af-4aca-9194-7d326bfdea88" />
+
 
 ## Notes
 
