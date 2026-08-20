@@ -18,6 +18,10 @@ class Task(BaseModel):
 class TaskCreate(BaseModel):
     title: Optional[str] = None
 
+class TaskUpdate(BaseModel):
+    title: Optional[str] = None
+    done: Optional[bool] = None
+
 tasks: List[Task] = [
     Task(id=1, title="Buy milk", done=False),
     Task(id=2, title="Write README", done=False),
@@ -25,26 +29,26 @@ tasks: List[Task] = [
 ]
 next_id = 4
 
-@app.get("/")
+@app.get("/", summary="API info")
 def read_root():
     return {"name": "Task API", "version": "1.0", "endpoints": ["/tasks"]}
 
-@app.get("/health")
+@app.get("/health", summary="Health check")
 def health_check():
     return {"status": "ok"}
 
-@app.get("/tasks")
+@app.get("/tasks", summary="List all tasks")
 def get_tasks():
     return tasks
 
-@app.get("/tasks/{task_id}")
+@app.get("/tasks/{task_id}", summary="Get one task by id")
 def get_task(task_id: int):
     for t in tasks:
         if t.id == task_id:
             return t
     raise HTTPException(status_code=404, detail=f"Task {task_id} not found")
 
-@app.post("/tasks", status_code=201)
+@app.post("/tasks", status_code=201, summary="Create a new task")
 def create_task(payload: TaskCreate):
     global next_id
     if not payload.title or not payload.title.strip():
@@ -55,7 +59,7 @@ def create_task(payload: TaskCreate):
     next_id += 1
     return new_task
 
-@app.put("/tasks/{task_id}")
+@app.put("/tasks/{task_id}", summary="Update a task's title and/or done status")
 def update_task(task_id: int, payload: TaskUpdate):
     for t in tasks:
         if t.id == task_id:
@@ -68,7 +72,7 @@ def update_task(task_id: int, payload: TaskUpdate):
             return t
     raise HTTPException(status_code=404, detail=f"Task {task_id} not found")
 
-@app.delete("/tasks/{task_id}", status_code=204)
+@app.delete("/tasks/{task_id}", status_code=204, summary="Delete a task")
 def delete_task(task_id: int):
     for i, t in enumerate(tasks):
         if t.id == task_id:
